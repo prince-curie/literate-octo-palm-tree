@@ -9,6 +9,8 @@ contract Atlantis is ERC20, Ownable {
 
     error NotDistributionContractAddress();
 
+    event SetDistributionContractAddress(address indexed);
+
     modifier onlyDistributionContract() {
         if(msg.sender != distributionContract) {
             revert NotDistributionContractAddress();
@@ -25,5 +27,7 @@ contract Atlantis is ERC20, Ownable {
 
     function setDistributionContractAddress(address _distributionContract) public onlyOwner {
         distributionContract = _distributionContract;
+
+        emit SetDistributionContractAddress(msg.sender);
     }
 }
