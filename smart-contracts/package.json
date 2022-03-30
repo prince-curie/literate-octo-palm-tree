@@ -13,6 +13,7 @@
   "author": "Blockgames Atlantis Team",
   "license": "ISC",
   "devDependencies": {
+    "@defi-wonderland/smock": "^2.0.7",
     "@nomiclabs/hardhat-ethers": "^2.0.5",
     "@nomiclabs/hardhat-etherscan": "^3.0.3",
     "@nomiclabs/hardhat-ganache": "^2.0.1",
