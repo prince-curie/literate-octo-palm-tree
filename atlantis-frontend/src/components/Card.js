@@ -1,6 +1,22 @@
+
+import { useContext } from "react";
+import { etherContext } from "./contexts/EtherProvider";
+
 import Loading from "./Helper/Loading"
 
 function Card() {
+  const {provider, requestAccount} = useContext(etherContext)
+  const doSomthing = async () => {
+    if(provider){
+        const signer = await provider.getSigner()
+
+
+    } else {
+      console.log("not connected")
+     
+    }
+  }
+  doSomthing()
   return (
     <div className="menu-card">
       <div className="card">
