@@ -1,6 +1,8 @@
-require("dotenv").config();
-require("@nomiclabs/hardhat-ethers");
-require("@nomiclabs/hardhat-etherscan");
+import dotenv from "dotenv";
+import "@nomiclabs/hardhat-ethers";
+import "@nomiclabs/hardhat-etherscan";
+
+dotenv.config();
 
 const { API_URL, PRIVATE_KEY, ETHERSCAN_API_KEY } = process.env;
 
