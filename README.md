@@ -14,9 +14,9 @@ A web3 project built by my team and I which allows an admin/owner to distribute 
     git clone https://github.com/prince-curie/literate-octo-palm-tree.git
 ```
 - change directory into the project's folder.
-```
-    cd literate-octo-palm-tree
 ```bash
+    cd literate-octo-palm-tree
+```
 - Change directory to the `frontend` or `smart-contracts` folder depending on which you want to install
 ```bash
     cd {{name of folder}}
