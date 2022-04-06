@@ -1,0 +1,26 @@
+{
+  "name": "@literate-octo-palm-tree/smart-contracts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "compile": "npx hardhat compile",
+    "deploy": "npx hardhat run ./scripts/deploy.js",
+    "verify": "npx hardhat verify",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Blockgames Atlantis Team",
+  "license": "ISC",
+  "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.0.5",
+    "@nomiclabs/hardhat-etherscan": "^3.0.3",
+    "hardhat": "^2.9.2",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.3"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.5.0",
+    "dotenv": "^16.0.0"
+  }
+}
