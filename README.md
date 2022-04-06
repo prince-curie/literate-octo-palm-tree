@@ -60,7 +60,7 @@ While in the backend branch run `npm run test`
 
 ### UI Design
 
-__Check out our frontend design [Here](https://www.figma.com/file/DY7ZEUHLnt5tiVwwI1n08q/Fix-the-typo!?node-id=5501%3A2)__
+__Check out our frontend design [Here](https://www.figma.com/file/DY7ZEUHLnt5tiVwwI1n08q/Atlantics?node-id=5508%3A2)__
 
 ### Frontend Link
 
