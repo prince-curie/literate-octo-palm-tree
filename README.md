@@ -48,10 +48,19 @@ A web3 project built by my team and I which allows an admin/owner to distribute 
 While in the backend branch run `npm run test`
 
 ## Team members
+- Asuzu Kosisochukwu Kenny
+- Joshua Okoro
+- Victor Oisamoje
+- Kelechi Fidelis Ndukwe
+- Mohammed Dahiru
+- Akeju Fatai
+- Onwubiko Chibuike
 
 ## Important Links
 
 ### UI Design
+
+__Check out our frontend design [Here](https://www.figma.com/file/DY7ZEUHLnt5tiVwwI1n08q/Fix-the-typo!?node-id=5501%3A2)__
 
 ### Frontend Link
 
