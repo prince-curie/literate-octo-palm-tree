@@ -91,3 +91,34 @@
   margin-top: 40px;
   border: 1px solid gray;
 }
+
+.addAdmin-form {
+  position: absolute;
+  width: 359px;
+  height: 153px;
+  left: 720px;
+  top: 595px;
+
+  background: #FFFFFF;
+  border-radius: 11px;
+  align-items: center;
+  margin-bottom: 100px;
+  margin-right: auto;
+  padding-left: 80px;
+  padding-top: 100px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+.submitAdmin-button {
+  margin-left: 30px;
+  border-radius: 5px;
+  border: 2px solid gray;
+  height: 2.6rem;
+  cursor: pointer;
+  background-color: white;
+}
+
+.address-input {
+  height: 2.6rem;
+}

@@ -20,6 +20,7 @@ function AddAdminForm() {
 
                 await contract.addAdmin(walletAddress);
                 console.log("New admin added");
+                setWalletAddress("")
             }
         } catch (error) {
             console.log(error)
@@ -29,6 +30,7 @@ function AddAdminForm() {
     return (
         <div className='addAdmin-form'>
             <input
+            className='address-input'
             type="text"
             value={walletAddress}
             placeholder="enter wallet address"
