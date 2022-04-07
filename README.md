@@ -60,7 +60,7 @@ While in the backend branch run `npm run test`
 
 ### UI Design
 
-![image](https://user-images.githubusercontent.com/19577206/162071844-123d2cda-48fe-4786-9700-4b130ddb94c2.png)
+![Atlantics](https://user-images.githubusercontent.com/19577206/162250024-fea38f50-eef7-4f6e-9a8b-c83a7d21c075.png)
 
 __Check out our frontend design [Here](https://www.figma.com/file/DY7ZEUHLnt5tiVwwI1n08q/Atlantics?node-id=5501%3A2)__
 
