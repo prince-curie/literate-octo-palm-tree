@@ -1,13 +1,13 @@
 // SPDX-License-Identifier: Unlicense
 pragma solidity ^0.8.0;
 
-import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
-import "@openzeppelin/contracts/access/Ownable.sol";
+import "../node_modules/@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import "../node_modules/@openzeppelin/contracts/access/Ownable.sol";
 
 contract Atlantis is ERC20, Ownable {
     address public distributionContract;
 
-    error NotDistributionContractAddress();
+    error NotDistributionContractAddress(); 
 
     event SetDistributionContractAddress(address indexed);
 
@@ -17,8 +17,15 @@ contract Atlantis is ERC20, Ownable {
         }
         _;
     } 
+    // constructor mints 1 million Atlantis token
+    constructor() ERC20("Atlantis", "ALT") {
+        _mint(msg.sender, 1000000 * 10 ** 18);
+    }
 
-    constructor() ERC20("Atlantis", "ALT") {}
+    // To mint tokens 
+    function mint(address _to, uint _amount) public onlyDistributionContract {
+        _mint(_to, _amount);
+    }
 
     function burn(address account, uint256 amount) public onlyDistributionContract {
         _spendAllowance(account, msg.sender, amount);
