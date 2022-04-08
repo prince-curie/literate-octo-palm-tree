@@ -20,7 +20,7 @@ function DashBoard() {
       <div className="dashboard-card">
         <h4>DASHBOARD</h4>
         <div className="image">
-          <img src="https://icon-library.com/images/admin-user-icon/admin-user-icon-24.jpg" alt="image od admin"/>
+          <img src="https://icon-library.com/images/admin-user-icon/admin-user-icon-24.jpg" alt="admin"/>
         </div>
        {provider &&  <p className="address">{String(address).slice(0,5)}..{String(address).slice(-5)}</p>}
         <div className="notification">
