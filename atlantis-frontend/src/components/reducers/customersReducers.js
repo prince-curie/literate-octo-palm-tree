@@ -1,9 +1,13 @@
 export const customersReducer = (state, action) => {
   switch (action.type) {
+    case "EXCEL_LIST_REQUEST":
+      return {
+        loading: true,
+     };
     case "EXCEL_LIST_SUCCESS":
       return {
         loading: false,
-        address: action.payload,
+      data: action.payload,
       };
     case "EXCEL_LIST_FAIL":
       return {

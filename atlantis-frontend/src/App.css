@@ -1,6 +1,6 @@
 .container {
   width: 90%;
-  max-width: 990px;
+  max-width: 1100px;
   margin: 20px auto;
   display: flex;
 
@@ -25,11 +25,12 @@
 
 }
 .wallet-button button {
-  border-radius: 5px;
-  border: 2px solid gray;
+  border-radius: 11px;
   height: 2.6rem;
   cursor: pointer;
-  background-color: white;
+  background-color: #5B7AB7;
+  border: none;
+  color: white;
 }
 
 .menu-card {
@@ -78,7 +79,8 @@
   margin: 0 auto;
   border-radius: 5px;
   text-align: center;
-  background-color: lightblue;
+  background-color: #8FA1C5;
+
   padding: 10px;
 }
 .image img {
@@ -90,31 +92,68 @@
   border: 1px solid gray;
 }
 
-.addAdmin-form {
-  width: 359px;
-  height: 153px;
-  margin-top: 45px;
-  background: #FFFFFF;
-  border-radius: 11px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
+.admin-section{
+    display: flex;
+    column-gap: 20px;
+    margin-top: 45px;
+    
+}
+.only-admin{
+  width: 403px;
+  background: #FFFFFF;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+  border-radius: 11px;
+  
+}
+.addAdmin-form {
+  width: 100%;
+  height: 153px;
+  border-radius: 11px;
+  background: #FFFFFF;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 10px 44px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.submitAdmin-button {
-  margin-left: 30px;
-  border-radius: 5px;
-  border: 2px solid gray;
-  height: 2.6rem;
+.add-admin-button, .remove-admin-button {
+
+  width: 91px;
+  border-radius: 11px;
   cursor: pointer;
-  background-color: white;
+  border: none;
+ 
 }
 
 .address-input {
   height: 2.5rem;
-  border-radius: 5px;
+  border-radius: 11px;
+  width: 100%;
+  text-indent: 15px;
+}
+
+.admin-form{
+  width: 100%;
+}
+.form-buttons{
+  display: flex;
+  justify-content: space-between;
+ 
+  width: 100%;
+  padding: 10px 8px;
+
+}
+
+.send-token-button{
+  border-radius: 11px;
+  height: 2.1rem;
+  cursor: pointer;
+  background-color: #5B7AB7;
+  border: none;
+  color: white;
 }
 
 
