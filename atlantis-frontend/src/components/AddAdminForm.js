@@ -9,9 +9,10 @@ function AddAdminForm() {
     const CONTRACT_ADDRESS = ""
     const { provider } = useContext(etherContext)
     const handleAddAddress = async () => {
-        console.log(walletAddress)
+       
         ///don't do anything if wallet address is empty
         if(!walletAddress){return}
+        console.log(walletAddress)
 
         try {
             const {ethereum} = window;
@@ -31,10 +32,23 @@ function AddAdminForm() {
     const handleSubmit = (e) => {
         e.preventDefault()
     }
-    const handleRemoveAddress = (e) => [
+    const handleRemoveAddress = async (e) => {
+        if(!walletAddress){return}
+        //to handle removal of admin here
         
-        console.log(walletAddress)
-    ]
+        if(provider){
+            //handle the logic here
+        
+            const signer = await provider.getSigner()
+            console.log(signer)
+    
+            
+            setWalletAddress("")
+        } else {
+          console.log("not connected")
+         
+        }
+    }
 
     return (
         <div className='admin-section'>
