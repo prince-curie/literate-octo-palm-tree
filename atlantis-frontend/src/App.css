@@ -22,8 +22,6 @@
 
 .wallet-button {
   text-align: end;
-  
-  background-color: aquamarine;
 
 }
 .wallet-button button {
@@ -75,7 +73,7 @@
 
 .dashboard-card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  width: 210px;
+  width: 13rem;
   height: 600px;
   margin: 0 auto;
   border-radius: 5px;
@@ -93,19 +91,14 @@
 }
 
 .addAdmin-form {
-  position: absolute;
   width: 359px;
   height: 153px;
-  left: 720px;
-  top: 595px;
-
+  margin-top: 45px;
   background: #FFFFFF;
   border-radius: 11px;
+  display: flex;
   align-items: center;
-  margin-bottom: 100px;
-  margin-right: auto;
-  padding-left: 80px;
-  padding-top: 100px;
+  justify-content: center;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
 }
@@ -120,5 +113,17 @@
 }
 
 .address-input {
-  height: 2.6rem;
+  height: 2.5rem;
+  border-radius: 5px;
+}
+
+
+@media screen and (max-width: 820px) {
+  .dashboard-card{
+    width: 140px;
+  }
+  .image img {
+    width: 140px;
+  }
+  
 }

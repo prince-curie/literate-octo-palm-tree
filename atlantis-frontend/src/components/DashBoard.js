@@ -1,4 +1,20 @@
+import { useContext, useState } from "react";
+import { etherContext } from "./contexts/EtherProvider";
+
 function DashBoard() {
+  const [address, setAddress] = useState(null)
+  const {provider} = useContext(etherContext)
+  const getAddress =async () => {
+    if(provider){
+      const signer = provider.getSigner()
+      const res = await signer.getAddress()
+    
+      setAddress(res)
+    } else {
+      console.log("not connected")
+    }
+  }
+  getAddress()
   return (
     <div className="dashboard">
       <div className="dashboard-card">
@@ -6,7 +22,7 @@ function DashBoard() {
         <div className="image">
           <img src="https://icon-library.com/images/admin-user-icon/admin-user-icon-24.jpg" />
         </div>
-        <p className="address">0Xbas..s343</p>
+       {provider &&  <p className="address">{String(address).slice(0,5)}..{String(address).slice(-5)}</p>}
         <div className="notification">
           <h4>NOTIFICATION</h4>
           <p>Maintenance Request</p>
