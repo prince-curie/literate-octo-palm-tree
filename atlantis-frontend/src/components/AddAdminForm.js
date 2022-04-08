@@ -56,10 +56,10 @@ function AddAdminForm() {
             onChange={e => setWalletAddress(e.target.value)}
             />
            <div className="form-buttons">
-           <button style={{ "color":"white", "backgroundColor":"darkRed"}} className="remove-admin-button" onClick={handleRemoveAddress} type="submit">
+           <button style={{ "color":"#FFD4D4", "backgroundColor":"#C61717"}} className="remove-admin-button" onClick={handleRemoveAddress} type="submit">
                     Remove Admin
             </button>
-           <button style={{ "color":"white", "backgroundColor":"lightBlue"}} className="add-admin-button" onClick={handleAddAddress} type="submit">
+           <button style={{ "color":"white", "backgroundColor":"#5B7AB7"}} className="add-admin-button" onClick={handleAddAddress} type="submit">
                     Add Admin
             </button>
             </div>
