@@ -28,15 +28,8 @@ contract Atlantis is ERC20, Ownable {
         }
         _;
     } 
-    // constructor mints 1 million Atlantis token
-    constructor() ERC20("Atlantis", "ALT") {
-        _mint(msg.sender, 1000000 * 10 ** 18);
-    }
-
-    // To mint tokens to a particular address when needed
-    function mint(address _to, uint _amount) public onlyDistributionContract {
-        _mint(_to, _amount);
-    }
+   
+    constructor() ERC20("Atlantis", "ALT") {}
 
     function burn(uint256 _amount) external onlyServiceContracts {
         _burn(msg.sender, _amount);
