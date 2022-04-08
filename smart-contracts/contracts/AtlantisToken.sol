@@ -9,12 +9,8 @@ contract Atlantis is ERC20, Ownable {
     uint256 public totalMinted;
     mapping(address => bool) public serviceContracts;
 
-<<<<<<< HEAD
-    error NotDistributionContractAddress(); 
-=======
     error NotDistributionContractAddress();
     error NotServiceContractAddress();
->>>>>>> cae7bc51439b58cb8a56131b03d8eb6e0db46313
 
     event SetDistributionContractAddress(address indexed);
     event SetServiceContractAddress(address indexed);
