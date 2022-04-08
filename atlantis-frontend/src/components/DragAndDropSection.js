@@ -5,7 +5,7 @@ import * as XLSX from "xlsx";
 import { CustomersContext } from "./contexts/CustomersAddressProvider";
 
 function DragAndDropSection() {
-  const { dispatchExcel } = useContext(CustomersContext);
+  const { excelAddress,  dispatchExcel } = useContext(CustomersContext);
   
   const onDrop = useCallback((acceptedFiles) => {
     
@@ -37,7 +37,7 @@ function DragAndDropSection() {
           resolve(data);
         };
       } else {
-        reject("Plese select only excel file types");
+        reject("Please select only excel file types");
       }
     });
     promise
@@ -76,6 +76,8 @@ function DragAndDropSection() {
           </div>
         )}
       </div>
+      {excelAddress.error ? (<p style={{ "color": "red", "marginTop":"0", "textAlign":"center"}}>{excelAddress.error}</p>)
+       : (excelAddress.address && <p style={{ "color": "green", "marginTop":"0", "textAlign":"center"}}>Upload successfull</p>)}
     </div>
   );
 }

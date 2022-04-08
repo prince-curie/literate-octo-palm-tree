@@ -1,12 +1,13 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {ethers} from 'ethers'
 import contractAbi from './contractABI.json'
+import { etherContext } from './contexts/EtherProvider';
 
 
 function AddAdminForm() {
     const [walletAddress, setWalletAddress] = useState('');
     const CONTRACT_ADDRESS = ""
-
+    const { provider } = useContext(etherContext)
     const handleSubmit = async () => {
         // don't do anything if wallet address is empty
         if(!walletAddress){return}
@@ -14,12 +15,13 @@ function AddAdminForm() {
         try {
             const {ethereum} = window;
             if(ethereum) {
-                const provider = new ethers.providers.Web3Provider(ethereum);
-                const signer = provider.getSigner();
+                
+                const signer = provider.getSigner()
                 const contract = new ethers.Contract(CONTRACT_ADDRESS, contractAbi.abi, signer);
 
                 await contract.addAdmin(walletAddress);
                 console.log("New admin added");
+                setWalletAddress("")
             }
         } catch (error) {
             console.log(error)
@@ -29,6 +31,7 @@ function AddAdminForm() {
     return (
         <div className='addAdmin-form'>
             <input
+            className='address-input'
             type="text"
             value={walletAddress}
             placeholder="enter wallet address"

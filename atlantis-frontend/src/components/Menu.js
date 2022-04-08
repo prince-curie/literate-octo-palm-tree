@@ -3,6 +3,7 @@ import DragAndDropSection from "./DragAndDropSection";
 import Header from "./Header";
 import Loading from "./Helper/Loading";
 import WalletButton from "./WalletButton";
+import AddAdminForm from "./AddAdminForm";
 function Menu() {
   return (
     <div className="menu">
@@ -15,7 +16,7 @@ function Menu() {
       
       </div>
       <DragAndDropSection />
-     
+      <AddAdminForm />
     </div>
   );
 }

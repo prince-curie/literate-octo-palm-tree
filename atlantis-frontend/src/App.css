@@ -22,8 +22,6 @@
 
 .wallet-button {
   text-align: end;
-  
-  background-color: aquamarine;
 
 }
 .wallet-button button {
@@ -75,7 +73,7 @@
 
 .dashboard-card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  width: 210px;
+  width: 13rem;
   height: 600px;
   margin: 0 auto;
   border-radius: 5px;
@@ -90,4 +88,42 @@
 .notification {
   margin-top: 40px;
   border: 1px solid gray;
+}
+
+.addAdmin-form {
+  width: 359px;
+  height: 153px;
+  margin-top: 45px;
+  background: #FFFFFF;
+  border-radius: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+.submitAdmin-button {
+  margin-left: 30px;
+  border-radius: 5px;
+  border: 2px solid gray;
+  height: 2.6rem;
+  cursor: pointer;
+  background-color: white;
+}
+
+.address-input {
+  height: 2.5rem;
+  border-radius: 5px;
+}
+
+
+@media screen and (max-width: 820px) {
+  .dashboard-card{
+    width: 140px;
+  }
+  .image img {
+    width: 140px;
+  }
+  
 }

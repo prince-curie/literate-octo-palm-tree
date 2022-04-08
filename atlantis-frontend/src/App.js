@@ -9,7 +9,7 @@ import Menu from "./components/Menu";
 function App() {
   const { excelAddress } = useContext(CustomersContext);
   const { provider, requestAccount } = useContext(etherContext);
-
+  //all the address from the excel file are in excelAddress.address
 
   
   return (
