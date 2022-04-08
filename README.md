@@ -10,28 +10,39 @@ _They would like to:_
 3. Allows an admin/owner to distribute a specified token amongst a batch of addresses as reward for being loyal customers.
 
 ## Task
-We have been contacted to develop a system that allows Nestcoin to batch transactions in order of 200 addresses. This would enable admins for the organisation to distribute their "currency" as quickly and efficiently as possible.
+_We have been contacted to develop a system that allows Nestcoin to batch transactions in order of 200 addresses. This would enable admins for the organisation to distribute their "currency" as quickly and efficiently as possible._
 
 ## Solution
 
-The team had a meeting to ideate the problem and after a successful meeting, we came up with some solutions but had to drill down to one because of several factor such as time available for the project.
+_The team had a meeting to ideate the problem and after a successful meeting, we came up with some solutions but had to drill down to one because of several factor such as time available for the project._
 
-We have created two contracts one to distribute the minted token to the customers, while the other would be to exchange the currency for services amd other perks.
-The frontend was created to help admin distribute the token which is a form of rewarding loyal customers. The service or buyback part of the frontend would not be implemented as the task did not require us to handle that now.
+_We have created two contracts one to distribute the minted token to the customers, while the other would be to exchange the currency for services amd other perks.
+The frontend was created to help admin distribute the token which is a form of rewarding loyal customers. The service or buyback part of the frontend would not be implemented as the task did not require us to handle that now._
 
-We also but in a security aspect which would allow us to add and also remove admin as when we want it. But note that only admin can add another.
+_We also but in a security aspect which would allow us to add and also remove admin as when we want it. But note that only admin can add another._
 
-Finally we needed a way to keep track of the token and also usage/claim so we added the analytics part to the frontend.
-
-The project was finally deployed and the link to the live prototype is [Here](https://literate-octo-palm-tree-e3z8kzzyl-prince-curie.vercel.app/)
+_Finally we needed a way to keep track of the token and also usage/claim so we added the analytics part to the frontend._
 
 
+### UI Design
 
+![Atlantis](https://user-images.githubusercontent.com/19577206/162528321-94ec4f4e-b9f4-4814-bbcd-bbb4bac96607.JPG)
+
+__Check out our frontend design [Here](https://www.figma.com/file/DY7ZEUHLnt5tiVwwI1n08q/Atlantics?node-id=5501%3A2)__
+
+### Frontend Link
+
+_The project was finally deployed and the link to the live prototype is [Here](https://literate-octo-palm-tree-e3z8kzzyl-prince-curie.vercel.app/)_
+
+### Smart Contract Address
+
+
+<!-- 
 ## Technologies
 - React
 - Solidity
 - Mocha
-- Chai
+- Chai -->
 
 ## How to install
 - Clone the repo using
@@ -83,12 +94,3 @@ While in the backend branch run `npm run test`
 
 ## Important Links
 
-### UI Design
-
-![Atlantis](https://user-images.githubusercontent.com/19577206/162528321-94ec4f4e-b9f4-4814-bbcd-bbb4bac96607.JPG)
-
-__Check out our frontend design [Here](https://www.figma.com/file/DY7ZEUHLnt5tiVwwI1n08q/Atlantics?node-id=5501%3A2)__
-
-### Frontend Link
-
-### Smart Contract Address
