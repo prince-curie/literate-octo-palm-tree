@@ -30,4 +30,8 @@ contract Atlantis is ERC20, Ownable {
 
         emit SetDistributionContractAddress(msg.sender);
     }
+    
+    func mint(address _account, uint245 _amount) public onlyDistributionContract {
+        _mint(_account, _amount);
+    }
 }
