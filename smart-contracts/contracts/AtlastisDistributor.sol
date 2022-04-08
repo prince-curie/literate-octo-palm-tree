@@ -10,7 +10,7 @@ interface IAtlantisToken is IERC20 {
 contract AtlantisDistributor {
     // This is a smart contract for performing the batch distribution of the Atlantis tokens by the admins
 
-    mapping(address=>bool)admins;
+    mapping(address=>bool) admins;
     mapping(address => bool) receivers;
 
     uint256 public totalDistributed = 0;
@@ -21,6 +21,7 @@ contract AtlantisDistributor {
     event DistributionComplete(uint256 numberOfReceivers, uint256 amount);
 
     modifier isAdmin() {
+        require(admins[msg.sender] == true, "user must be an `admin`");
         _;
     }
 
@@ -30,8 +31,9 @@ contract AtlantisDistributor {
     }
     
     // add admin to the list of admins
-    function addAdmin(address newAdmin_) public isAdmin {
-        
+    function addAdmin(address _newAdmin) external isAdmin {
+        require(!isAnAdmin(_newAdmin), "user is already an `admin`");
+        admins[_newAdmin] = true;
     }
 
     // check if address is an admin
