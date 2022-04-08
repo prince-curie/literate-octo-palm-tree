@@ -52,9 +52,5 @@ contract Atlantis is ERC20, Ownable {
 
         _mint(_account, _amount);
     }
-    
-    
-    function isValidService(address service) external returns(bool){
-        return serviceContracts[service];
-    }
+
 }
