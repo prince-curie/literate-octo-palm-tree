@@ -4,8 +4,7 @@ import { customersReducer } from "../reducers/customersReducers";
 export const CustomersContext = createContext();
 function CustomersAddressProvider(props) {
   const [excelAddress, dispatchExcel] = useReducer(customersReducer, {
-    loading: true,
-    data: [],
+   
   });
 
   return (

@@ -3,13 +3,15 @@ import React, { useCallback, useContext } from "react";
 import { useDropzone } from "react-dropzone";
 import * as XLSX from "xlsx";
 import { CustomersContext } from "./contexts/CustomersAddressProvider";
+import Loading from "./Helper/Loading";
+import SendToken from "./SendToken";
 
 function DragAndDropSection() {
   const { excelAddress,  dispatchExcel } = useContext(CustomersContext);
   
   const onDrop = useCallback((acceptedFiles) => {
     
-
+    dispatchExcel({ type: "EXCEL_LIST_REQUEST"});
     console.log(acceptedFiles[0].type);
 
     const fileType = [
@@ -17,6 +19,7 @@ function DragAndDropSection() {
       "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
     ];
     const file = acceptedFiles[0];
+    console.log(excelAddress)
     //checking to see if the file is an excel file
     const promise = new Promise((resolve, reject) => {
 
@@ -42,12 +45,16 @@ function DragAndDropSection() {
     });
     promise
       .then((res) => {
+        
         const cusAddress = [res].map(val => {
           let addr = []
+          let amt = []
           for(let i = 0; i < val.length; i++){
            addr.push(val[i].address)
+           amt.push(val[i].amount)
          }
-          return addr
+         
+          return {"address": addr, "amount": amt}
         })
         console.log(cusAddress)
         
@@ -63,8 +70,9 @@ function DragAndDropSection() {
     <div className="drop-container">
       <p>FILE UPLOAD</p>
       <div className="drop" {...getRootProps()}>
+      
         <input {...getInputProps()} />
-
+        {excelAddress.loading === true && <Loading /> }
         {isDragActive ? (
           <p>Drop the files here ...</p>
         ) : (
@@ -76,8 +84,12 @@ function DragAndDropSection() {
           </div>
         )}
       </div>
+      
       {excelAddress.error ? (<p style={{ "color": "red", "marginTop":"0", "textAlign":"center"}}>{excelAddress.error}</p>)
-       : (excelAddress.address && <p style={{ "color": "green", "marginTop":"0", "textAlign":"center"}}>Upload successfull</p>)}
+       : (excelAddress.data && 
+       <div className="send-section"><p style={{ "color": "green", "marginTop":"0", "textAlign":"center"}}>Upload successfull</p>
+         <SendToken />
+      </div>)}
     </div>
   );
 }
