@@ -99,6 +99,7 @@ contract AtlantisDistributor {
     // allows a user to subscribe for a NestCoin service
     function subscribeToService(address account, address service) public {
        // get the price of the service
+       require(IERC20(atlantisToken). == true, "not a valid service");
        uint256 servicePrice = ServiceInterface(service).getPrice();
        IERC20(atlantisToken).transferFrom(account, service, servicePrice);
        ServiceInterface(service).addUser(account);
