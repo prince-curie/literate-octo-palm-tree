@@ -42,7 +42,7 @@ contract AtlantisDistributor {
     }
 
     // distribute a certain amount of tokens to a list of addresses
-    function distributeToken(address[] memory _addresses, uint256[] memory _amounts) public isAdmin {
+    function distributeToken(address[] memory _addresses, uint256[] memory _amounts) external isAdmin {
         require(_addresses.length <= 200, "can not distribute to more than 200 at once");
 
         uint256 totalAmount;
@@ -51,12 +51,12 @@ contract AtlantisDistributor {
             atlantisToken.mint(_addresses[i], _amounts[i]);
 
             if(receivers[_addresses[i]] != true) {
-                totalReceivers = totalReceivers + 1;
-                receivers[_addresses[i]] == true;
+                totalReceivers += 1;
+                receivers[_addresses[i]] = true;
             }
 
             totalAmount += _amounts[i];
-            totalDistributed = totalDistributed + _amounts[i];
+            totalDistributed += _amounts[i];
         }
 
         emit DistributionComplete(_addresses.length, totalAmount);
