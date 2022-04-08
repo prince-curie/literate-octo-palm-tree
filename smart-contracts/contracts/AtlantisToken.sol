@@ -28,7 +28,7 @@ contract Atlantis is ERC20, Ownable {
         }
         _;
     } 
-
+   
     constructor() ERC20("Atlantis", "ALT") {}
 
     function burn(uint256 _amount) external onlyServiceContracts {
