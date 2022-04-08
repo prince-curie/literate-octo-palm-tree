@@ -7,18 +7,11 @@ interface IAtlantisToken is IERC20 {
     function mint(address account, uint256 amount) external; 
 }
 
-interface ServiceInterface {
-  // This is an interface to define a NestCoin service
-  function getPrice() external returns(uint256);
-  function addUser(address account) external;
-}
-
-
 contract AtlantisDistributor {
     // Thsi is a smart contract for performing the batch distribution of the Atlantis tokens by the admins
 
     mapping(address=>bool)admins;
-    address[] recievers;
+    mapping(address=>bool) recievers;
 
     address public atlantisToken;
     uint256 public totalDistributed = 0;
@@ -69,26 +62,16 @@ contract AtlantisDistributor {
         distributions.push(distribution);
         emit DistributionComplete(_addresses.length, _amount);
     }
+    
     // add a reciever to the list of recievers if the address is not already in the recievers list
     function addReciever(address reciever) private {
-        for (uint256 i=0; i < recievers.length; i++){
-            if(reciever == recievers[i]){
-                return;
-            }
-        }
-        recievers.push(reciever);
+        recievers[reciever] = true;
     }
 
     // check if an address is a reciever, ie has been distributed tokens from this contract
     function isReciever(address reciever) public view returns(bool){
-        for (uint256 i=0; i < recievers.length; i++){
-            if(reciever == recievers[i]){
-                return true;
-            }
+            return recievers[reciever];
         }
-
-        return false;
-    }
 
     // Get the balance of an address that was distributed tokens from this distributor
     function balanceOfReciever(address reciever) public view returns(uint256){
@@ -96,12 +79,5 @@ contract AtlantisDistributor {
         return IERC20(atlantisToken).balanceOf(reciever);
     }
 
-    // allows a user to subscribe for a NestCoin service
-    function subscribeToService(address account, address service) public {
-       // get the price of the service
-       require(IERC20(atlantisToken).isValidService(service) == true, "not a valid service");
-       uint256 servicePrice = ServiceInterface(service).getPrice();
-       IERC20(atlantisToken).transferFrom(account, service, servicePrice);
-       ServiceInterface(service).addUser(account);
-    }
+
 }
