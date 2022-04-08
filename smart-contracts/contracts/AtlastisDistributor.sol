@@ -7,6 +7,10 @@ interface IAtlantisToken is IERC20 {
     function mint(address account, uint256 amount) external; 
 }
 
+interface ServiceInterface {
+  // This is an interface to define a NestCoin service
+}
+
 contract AtlantisDistributor {
     // This is a smart contract for performing the batch distribution of the Atlantis tokens by the admins
 
