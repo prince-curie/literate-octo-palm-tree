@@ -6,7 +6,7 @@ import { etherContext } from './contexts/EtherProvider';
 
 function AddAdminForm() {
     const [walletAddress, setWalletAddress] = useState('');
-    const CONTRACT_ADDRESS = ""
+    const CONTRACT_ADDRESS = "0xFC34E434E07CaEBb9BfaebB2bb1CC2D4609A48d8"
     const { provider } = useContext(etherContext)
     const handleAddAddress = async () => {
        
@@ -21,8 +21,8 @@ function AddAdminForm() {
                 const signer = provider.getSigner()
                 const contract = new ethers.Contract(CONTRACT_ADDRESS, contractAbi.abi, signer);
 
-                await contract.addAdmin(walletAddress);
-                console.log("New admin added");
+                let response = await contract.addAdmin(walletAddress);
+                console.log("New admin added, response: ", response);
                 setWalletAddress("")
             }
         } catch (error) {
