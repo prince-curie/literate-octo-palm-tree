@@ -14,12 +14,11 @@ _We have been contacted to develop a system that allows Nestcoin to batch transa
 
 ## Solution
 
-_The team had a meeting to ideate the problem and after a successful meeting, we came up with some solutions but had to drill down to one because of several factor such as time available for the project._
+_The team had to swing into action by ogranizing a meeting to ideate the problem and after a successful meeting, we came up with some solutions but had to drill down to one because of several factor such as time available for the project._
 
-_We have created two contracts one to distribute the minted token to the customers, while the other would be to exchange the currency for services amd other perks.
-The frontend was created to help admin distribute the token which is a form of rewarding loyal customers. The service or buyback part of the frontend would not be implemented as the task did not require us to handle that now._
+_We suggested created two contracts one to distribute the minted token to the customers, while the other would be to exchange the currency for services amd other perks. The frontend was created to help admin distribute the token which is a form of rewarding loyal customers. The service or buyback part of the frontend would not be implemented as the task did not require us to handle that now._
 
-_We also but in a security aspect which would allow us to add and also remove admin as when we want it. But note that only admin can add another._
+_We also looked at security aspect. We had to implement add and also remove admin feature. But note that only admin can add another._
 
 _Finally we needed a way to keep track of the token and also usage/claim so we added the analytics part to the frontend._
 
