@@ -5,25 +5,25 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract Atlantis is ERC20, Ownable {
-    address public distributionContract;
+    address public distributorContract;
     uint256 public totalMinted;
-    mapping(address => bool) public serviceContracts;
+    address public serviceContract;
 
     error NotDistributionContractAddress();
     error NotServiceContractAddress();
 
-    event SetDistributionContractAddress(address indexed);
-    event SetServiceContractAddress(address indexed);
+    event SetDistributorContractAddress(address indexed admin, address contractAddress);
+    event SetServiceContractAddress(address indexed admin, address contractAddress);
 
-    modifier onlyDistributionContract() {
-        if(msg.sender != distributionContract) {
+    modifier onlyDistributorContract() {
+        if(msg.sender != distributorContract) {
             revert NotDistributionContractAddress();
         }
         _;
     }
 
-    modifier onlyServiceContracts() {
-        if(!serviceContracts[msg.sender]) {
+    modifier onlyServiceContract() {
+        if(serviceContract != msg.sender) {
             revert NotServiceContractAddress();
         }
         _;
@@ -31,23 +31,35 @@ contract Atlantis is ERC20, Ownable {
    
     constructor() ERC20("Atlantis", "ALT") {}
 
-    function burn(uint256 _amount) external onlyServiceContracts {
+    /**
+     * @dev Calls the erc-20 burn function to destroy a given amount of token
+     */
+    function burn(uint256 _amount) external onlyServiceContract {
         _burn(msg.sender, _amount);
     }
 
-    function setDistributionContractAddress(address _distributionContract) public onlyOwner {
-        distributionContract = _distributionContract;
+    /**
+     * @dev Sets the contract address for the distributor contract
+     */
+    function setDistributorContractAddress(address _distributorContract) public onlyOwner {
+        distributorContract = _distributorContract;
 
-        emit SetDistributionContractAddress(msg.sender);
+        emit SetDistributorContractAddress(msg.sender, _distributorContract);
     }
 
+    /**
+     * @dev Sets the contract address for the service manager contract
+     */
     function setServiceContractAddress(address _serviceContract) public onlyOwner {
-        serviceContracts[_serviceContract] = true;
+        serviceContract = _serviceContract;
 
-        emit SetServiceContractAddress(msg.sender);
+        emit SetServiceContractAddress(msg.sender, _serviceContract);
     }
     
-    function mint(address _account, uint256 _amount) external onlyDistributionContract {
+    /**
+     * @dev Generates new specified amount of tokens for the specified address
+     */
+    function mint(address _account, uint256 _amount) external onlyDistributorContract {
         totalMinted += _amount;
 
         _mint(_account, _amount);

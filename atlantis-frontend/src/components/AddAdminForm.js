@@ -6,9 +6,9 @@ import { etherContext } from './contexts/EtherProvider';
 
 function AddAdminForm() {
     const [walletAddress, setWalletAddress] = useState('');
-    const CONTRACT_ADDRESS = "0xFC34E434E07CaEBb9BfaebB2bb1CC2D4609A48d8"
+    const CONTRACT_ADDRESS = "0x037482A45b5EFf8FA80A5a0Bb35Be90C0deC6965";
     const { provider } = useContext(etherContext)
-    
+
     const handleAddAddress = async () => {
        
         ///don't do anything if wallet address is empty
@@ -31,26 +31,38 @@ function AddAdminForm() {
             console.log(error)
         }
     }
+
+
     const handleSubmit = (e) => {
         e.preventDefault()
     }
+
+
     const handleRemoveAddress = async (e) => {
         if(!walletAddress){return}
-        //to handle removal of admin here
+    
         
         if(provider){
-            //handle the logic here
-        
-            const signer = await provider.getSigner()
-            console.log(signer)
-    
-            
-            setWalletAddress("")
+            const {ethereum} = window;
+
+            try {
+                if(ethereum) {
+                    const signer = provider.getSigner()
+                    const contract = new ethers.Contract(CONTRACT_ADDRESS, contractAbi.abi, signer);
+                    let response = await contract.removeAdmin(walletAddress);
+                    console.log("Admin removed, response: ", response);
+                    setWalletAddress("")
+                }
+            } catch (error) {
+                console.log(error)
+            }
+
         } else {
           console.log("not connected")
          
         }
     }
+
 
     return (
         <div className='admin-section'>
