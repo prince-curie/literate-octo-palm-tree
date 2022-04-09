@@ -6,7 +6,7 @@ import {ethers} from 'ethers'
 function SendToken(){
     const {excelAddress} = useContext(CustomersContext)
     const {provider} = useContext(etherContext)
-    const CONTRACT_ADDRESS = "0xFC34E434E07CaEBb9BfaebB2bb1CC2D4609A48d8"
+    const CONTRACT_ADDRESS = "0x037482A45b5EFf8FA80A5a0Bb35Be90C0deC6965"
     const sendHandle = async() => {
         if(provider){
             try {

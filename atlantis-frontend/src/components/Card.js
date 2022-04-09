@@ -21,6 +21,7 @@ function Card() {
               const signer = provider.getSigner()
               const contract = new ethers.Contract(CONTRACT_ADDRESS, contractAbi.abi, signer);
 
+
               console.log(contract)
               
               //total distributed
@@ -36,10 +37,10 @@ function Card() {
               console.log(totalR, "total received")
               setTotalRecievers(totalR)
               ///listering for an event on the contract
-              // contract.on("DistributionComplete", (numberOfReceivers, amount) => {
-              //   console.log(numberOfReceivers)
-              //   console.log(amount)
-              // })
+              contract.on("DistributionComplete", (numberOfReceivers, amount) => {
+                console.log(numberOfReceivers)
+                console.log(amount)
+              })
           }
       } catch (error) {
           console.log(error)
