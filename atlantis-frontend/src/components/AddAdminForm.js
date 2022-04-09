@@ -8,11 +8,13 @@ function AddAdminForm() {
     const [walletAddress, setWalletAddress] = useState('');
     const CONTRACT_ADDRESS = "0xFC34E434E07CaEBb9BfaebB2bb1CC2D4609A48d8"
     const { provider } = useContext(etherContext)
+    
     const handleAddAddress = async () => {
        
         ///don't do anything if wallet address is empty
         if(!walletAddress){return}
         console.log(walletAddress)
+
 
         try {
             const {ethereum} = window;
