@@ -6,7 +6,7 @@ import { etherContext } from './contexts/EtherProvider';
 
 function AddAdminForm() {
     const [walletAddress, setWalletAddress] = useState('');
-    const CONTRACT_ADDRESS = "0x037482A45b5EFf8FA80A5a0Bb35Be90C0deC6965";
+    const CONTRACT_ADDRESS = "0xE61Cb4f798d2Df3B7202a93Cf4364b2D367e5F15";
     const { provider } = useContext(etherContext)
 
     const handleAddAddress = async () => {
