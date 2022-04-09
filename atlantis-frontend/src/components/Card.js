@@ -3,13 +3,16 @@ import { useContext, useState } from "react";
 import { etherContext } from "./contexts/EtherProvider";
 import { ethers } from "ethers"
 import contractAbi from './contractABI.json'
+import atlantisContractAbi from "./atlantisContractABI.json"
 import Loading from "./Helper/Loading"
 
 function Card() {
   const {provider} = useContext(etherContext)
+  const [totalSupply, setTotalSupply] = useState(0)
   const [totalDistributed, setTotalDistributed] = useState(0)
   const [totalReceivers, setTotalRecievers] = useState(0)
   const CONTRACT_ADDRESS = "0x037482A45b5EFf8FA80A5a0Bb35Be90C0deC6965"
+  const ATLANTIS_CONTRACT = "0x120960e9E5B7d15eb5913e1E873bB19238bB1ab6"
   
   const doSomthing = async () => {
     if(provider){
@@ -20,9 +23,13 @@ function Card() {
               
               const signer = provider.getSigner()
               const contract = new ethers.Contract(CONTRACT_ADDRESS, contractAbi.abi, signer);
+              const atlantisContract = new ethers.Contract(ATLANTIS_CONTRACT, atlantisContractAbi.abi, signer);
 
-
-              console.log(contract)
+              //total supply
+              console.log(atlantisContract)
+              let totalSupply = await atlantisContract.totalSupply()
+              let totalSup = ethers.utils.formatEther(totalSupply.toString())
+              setTotalSupply(totalSup)
               
               //total distributed
               let totalDistributed = await contract.totalDistributed()
@@ -37,10 +44,14 @@ function Card() {
               console.log(totalR, "total received")
               setTotalRecievers(totalR)
               ///listering for an event on the contract
-              contract.on("DistributionComplete", (numberOfReceivers, amount) => {
+            try{
+                contract.on("DistributionComplete", (numberOfReceivers, amount) => {
                 console.log(numberOfReceivers)
                 console.log(amount)
               })
+            } catch {
+              console.log("no event emitted")
+            }
           }
       } catch (error) {
           console.log(error)
@@ -56,7 +67,7 @@ function Card() {
     <div className="menu-card">
       <div className="card">
         <h4>Total Bonus</h4>
-        <p>5,000</p>
+        <p>{totalSupply}</p>
         <p>ALT-TOKEN</p>
       </div>
       <div className="card">
@@ -66,7 +77,7 @@ function Card() {
       </div>
       <div className="card">
         <h4>TOTAL CLAIMED</h4>
-        <p>3000/5k</p>
+        <p>{totalReceivers}</p>
       </div>
     </div>
   );
