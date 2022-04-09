@@ -9,6 +9,7 @@ import Loading from "./Helper/Loading"
 function Card() {
   const {provider} = useContext(etherContext)
   const [totalSupply, setTotalSupply] = useState(0)
+  const [loading, setLoading] = useState(false)
   const [totalDistributed, setTotalDistributed] = useState(0)
   const [totalReceivers, setTotalRecievers] = useState(0)
   const CONTRACT_ADDRESS = "0x037482A45b5EFf8FA80A5a0Bb35Be90C0deC6965"
@@ -26,7 +27,7 @@ function Card() {
               const atlantisContract = new ethers.Contract(ATLANTIS_CONTRACT, atlantisContractAbi.abi, signer);
 
               //total supply
-              console.log(atlantisContract)
+              // console.log(atlantisContract)
               let totalSupply = await atlantisContract.totalSupply()
               let totalSup = ethers.utils.formatEther(totalSupply.toString())
               setTotalSupply(totalSup)
@@ -41,13 +42,15 @@ function Card() {
               let totalReceivers = await contract.totalReceivers()
               //converting big number
               const totalR = ethers.utils.formatEther(totalReceivers.toString());
-              console.log(totalR, "total received")
+            
               setTotalRecievers(totalR)
               ///listering for an event on the contract
             try{
                 contract.on("DistributionComplete", (numberOfReceivers, amount) => {
                 console.log(numberOfReceivers)
                 console.log(amount)
+                setLoading(prevState => !prevState)
+                
               })
             } catch {
               console.log("no event emitted")
@@ -72,7 +75,7 @@ function Card() {
       </div>
       <div className="card">
         <h4>TOTAL SENT</h4>
-        <Loading />
+        {loading && <Loading />}
         <p>{totalDistributed}%</p>
       </div>
       <div className="card">
