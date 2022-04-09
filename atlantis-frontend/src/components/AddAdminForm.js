@@ -68,7 +68,7 @@ function AddAdminForm() {
         <div className='admin-section'>
            <div className="only-admin">
                <h4>ADMIN</h4>
-               <p>Only an admin can add or delete an address on theis platform</p>
+               <p>Only an admin can add or delete an address on these platform</p>
            </div>
            <div className="addAdmin-form">
            <h4>ADDRESS</h4>
