@@ -1,9 +1,11 @@
 import { useContext } from "react"
 import { CustomersContext } from "./contexts/CustomersAddressProvider"
 import { etherContext } from "./contexts/EtherProvider"
+import { ConnectionContext } from "./contexts/HandleConnection"
 import contractAbi from "./contractABI.json"
 import {ethers} from 'ethers'
 function SendToken(){
+    const { doSomthing } = useContext(ConnectionContext)
     const {excelAddress} = useContext(CustomersContext)
     const {provider} = useContext(etherContext)
     const CONTRACT_ADDRESS = "0x037482A45b5EFf8FA80A5a0Bb35Be90C0deC6965"
@@ -26,6 +28,7 @@ function SendToken(){
                     // console.log(contract)
                     let response = await contract.distributeToken(address[0], amount[0]);
                     console.log(response)
+                    doSomthing()
                  
                 }
             } catch (error) {
@@ -37,6 +40,7 @@ function SendToken(){
             console.log("Not connected")
         }
     }
+    doSomthing()
 return(
     <div>
         <button onClick={sendHandle} className="send-token-button">Send Token</button>
