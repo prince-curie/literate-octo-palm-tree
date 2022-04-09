@@ -9,13 +9,12 @@ function AddAdminForm() {
     const CONTRACT_ADDRESS = "0xE61Cb4f798d2Df3B7202a93Cf4364b2D367e5F15";
     const { provider } = useContext(etherContext)
 
-
-
     const handleAddAddress = async () => {
        
         ///don't do anything if wallet address is empty
         if(!walletAddress){return}
         console.log(walletAddress)
+
 
         try {
             const {ethereum} = window;
@@ -69,7 +68,7 @@ function AddAdminForm() {
         <div className='admin-section'>
            <div className="only-admin">
                <h4>ADMIN</h4>
-               <p>Only an admin can add or delete an address on theis platform</p>
+               <p>Only an admin can add or delete an address on these platform</p>
            </div>
            <div className="addAdmin-form">
            <h4>ADDRESS</h4>

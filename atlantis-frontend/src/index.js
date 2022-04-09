@@ -6,14 +6,16 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import CustomersAddressProvider from './components/contexts/CustomersAddressProvider';
 import EtherProvider from './components/contexts/EtherProvider';
-
+import HandleConnection from './components/contexts/HandleConnection';
 const container = document.getElementById('root');
 const root = createRoot(container);
 root.render(
   <React.StrictMode>
       <EtherProvider>
     <CustomersAddressProvider>
+      <HandleConnection>
     <App />
+    </HandleConnection>
     </CustomersAddressProvider>
     </EtherProvider>
   </React.StrictMode>
