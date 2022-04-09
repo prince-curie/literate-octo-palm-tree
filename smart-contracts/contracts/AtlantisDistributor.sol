@@ -13,7 +13,7 @@ interface IAtlantisToken is IERC20 {
  */
 
 contract AtlantisDistributor {
-    mapping(address => bool) admins;
+    mapping(address => bool) public admins;
     mapping(address => bool) receivers;
     
     struct SuggestAdminData {
@@ -27,7 +27,7 @@ contract AtlantisDistributor {
     uint256 public totalReceivers = 0;
     uint8 private constant maxNoOfAdmins = 5;
     uint8 private constant maxAdminVote = 3;
-    uint8 private noOfAdmins;
+    uint8 public noOfAdmins;
 
     IAtlantisToken atlantisToken;
 

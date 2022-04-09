@@ -7,7 +7,16 @@ dotenv.config();
 const { API_URL, PRIVATE_KEY, ETHERSCAN_API_KEY } = process.env;
 
 module.exports = {
-    solidity: "0.8.4",
+    solidity: {
+        version: "0.8.4", 
+        settings: {
+            outputSelection: {
+                "*": {
+                "*": ["storageLayout"]
+                }
+            }
+        }
+    },
     // defaultNetwork: "rinkeby",
     // networks: {
     //     hardhat: {},
