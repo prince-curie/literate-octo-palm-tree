@@ -1,7 +1,7 @@
 {
   "_format": "hh-sol-artifact-1",
   "contractName": "IAtlantisToken",
-  "sourceName": "contracts/AtlastisDistributor.sol",
+  "sourceName": "contracts/AtlantisDistributor.sol",
   "abi": [
     {
       "anonymous": false,

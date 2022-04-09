@@ -3,11 +3,15 @@ async function main() {
     /***********************************************************************
      *********************** DEPLOY ATLANTIS-TOKEN *************************
      ***********************************************************************/
-    const AtlantisToken = await ethers.getContractFactory("AtlantisToken");
-    const altantisTokenContract = await AtlantisToken.deploy();
+    const AtlantisToken = await ethers.getContractFactory("Atlantis");
+    const atlantisTokenContract = await AtlantisToken.deploy();
 
-    console.log(`Contract address => ${altantisTokenContract.address}`);
+    console.log(`Atlantis contract address => ${atlantisTokenContract.address}`);
 
+    const AtlantisDistributor = await ethers.getContractFactory("AtlantisDistributor");
+    const atlantisDistributor = await AtlantisDistributor.deploy(atlantisTokenContract.address)
+
+    console.log(`Distributor contract address: ${atlantisDistributor.address}`)
 }
 
 main()
